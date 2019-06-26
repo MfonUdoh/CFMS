@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="row">
+  <div class="col-10">
+<h1 style="color:#ff7200; margin-bottom: 15px;"><b>Open Work Orders</b>
+</div>
+<div class="col-2">
+<a href="{% url 'create_post' %}" class="btn btn-outline-success" style="float: right;">New</a></h1>
+  </div>
+</div>
+<hr>
+<div class="row">
+{% for post in object_list %}
+<div class="col-12 col-md-4">
+  <div class="card {% if "[URGENT]" not in post.title %}border-secondary{% else %}border-danger {% endif %} mb-3">
+  <div class="card-header {% if "[URGENT]" not in post.title %}border-secondary{% else %}border-danger {% endif %}">
+    <h4 {% if "[URGENT]" not in post.title %}class="text"{% else %}class="text-danger" {% endif %}>{{ post.title }}</h4>
+    </div>
+  <div {% if "[URGENT]" not in post.title %}class="card-body"{% else %}class="card-body text-danger" {% endif %}>
+    <p class= "font-italic">{{ post.ass_user}}</p>
+    <p class="card-text">{{ post.text }}</p>
+  </div>
+  <div class="card-footer bg-transparent {% if "[URGENT]" not in post.title %}border-secondary{% else %}border-danger {% endif %} align-items-center"><b>{{ post.author }}</b>    {{ post.date }} <a href="{% url 'post' post.pk %}" class="btn btn-outline-primary" style="float: right;">View</a></div>
+  
+  </div>
+</div>
+
+{% endfor %}
+</div>
+{% endblock content %}

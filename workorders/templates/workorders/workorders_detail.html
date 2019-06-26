@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ order.title }}{% endblock title %}
+
+{% block content %}
+<h1 style="color:#ff7200;"><b>{{ order.title }}</b></h1>
+  <h5 class= "font-italic">{{ order.targetuser}},</h5>
+  <p style="font-size: larger";>{{ order.text }}</p>
+  <hr>
+<p><b>{{ order.author }}</b></p>
+<p><em>{{ order.published_date }}</em></p>
+<hr>
+<a class="btn btn-outline-secondary" href="{% url 'workorders_list' %}" role="button">Close</a>
+<a class="btn btn-outline-success" href="" role="button">New</a>
+<a class="btn btn-outline-primary" href="" role="button">Edit</a>
+<a class="btn btn-outline-danger" href="" role="button">Delete</a>
+
+{% endblock content %}

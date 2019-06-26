@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock title %}
+
+{% block content %}
+<h1 style="color:#ff7200;"><b>{{ post.title }}</b></h1>
+  <h5 class= "font-italic">{{ post.ass_user}},</h5>
+  <p style="font-size: larger";>{{ post.text }}</p>
+  <hr>
+<p><b>{{ post.author }}</b></p>
+<p><em>{{ post.date }}</em></p>
+<hr>
+<a class="btn btn-outline-secondary" href="{% url 'home' %}" role="button">Close</a>
+<a class="btn btn-outline-success" href="{% url 'create_post' %}" role="button">New</a>
+<a class="btn btn-outline-primary" href="{% url 'update_post' post.pk %}" role="button">Edit</a>
+<a class="btn btn-outline-danger" href="{% url 'delete_post' post.pk %}" role="button">Delete</a>
+
+{% endblock content %}

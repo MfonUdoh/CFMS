@@ -1,22 +1,31 @@
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
+{% extends 'base.html' %}
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
+{% block title %}Work Orders{% endblock title %}
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
-    </body>
-</html>
+{% block content %}
+<div class="row">
+    <div class="col-10">
+  <h1 style="color:#ff7200; margin-bottom: 15px;"><b>Open Work Orders</b>
+  </div>
+  <div class="col-2">
+  <a href="" class="btn btn-outline-success" style="float: right;">New</a></h1>
+    </div>
+  </div>
+  <hr>
+  {% for order in orders %}
+  <div class="row">
+  <div class="col-12 col-md-4">
+    <div class="card border-secondary mb-3">
+    <div class="card-header border-secondary">
+      <h4 class="text">{{ order.title }}</h4>
+      </div>
+    <div class="card-body">
+      <p class= "font-italic">{{ order.targetuser }}</p>
+      <p class="card-text">{{ order.text|linebreaksbr }}</p>
+    </div>
+    <div class="card-footer bg-transparent border-secondary align-items-center"><b>{{ order.author }}</b>    {{ order.published_date }} <a href="{% url 'workorders_detail' pk=order.pk %}" class="btn btn-outline-primary" style="float: right;">View</a></div>
+    {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock content %}

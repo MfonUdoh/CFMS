@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Post{% endblock title %}
+
+{% block content %}
+<h1 style="color:#ff7200; margin-bottom: 15px;"><b>{{ post.title }}</b></h1>
+<hr>
+<div class="container-fluid">
+<form action="" method="POST">{% csrf_token %}
+  {{ form.as_p }}
+  <a class="btn btn-outline-secondary" href="{% url 'post' post.pk %}" role="button">Cancel</a>
+  <input type="submit" class="btn btn-outline-primary" value="Save">
+</form>
+</div>
+
+{% endblock content %}

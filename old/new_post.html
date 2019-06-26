@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% block title %}Create a new work request{% endblock title %} {% block content %}
+<h1 style="color:#ff7200; margin-bottom: 15px;"><b>Create A Work Order Request</b></h1>
+<hr>
+
+<form action="" method="POST">{% csrf_token %}
+  <div class="col-12">
+    <div class="row">
+        <div class="col-12 col-md-2">
+          <label for="title">
+            <h3 class="font-weight-bold" style="color:#ff7200;">
+              Title
+            </h3>
+            </label>
+        </div>
+        <div class="col-12 col-md align-self-start">
+          {{ form.title }}
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-2">
+        <label for="author">
+          <h3 class="font-weight-bold" style="color:#ff7200;">
+            Author
+          </h3>
+        </label>
+      </div>
+      <div class="col-12 col-md align-self-start">
+        {{ form.author }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-2 align-self-center">
+        <label for="text">
+          <h3 class="font-weight-bold" style="color:#ff7200;">
+            Text
+          </h3>
+        </label>
+      </div>
+      <div class="col-12 col-md align-self-start">
+        {{ form.text }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-2">
+        <label for="ass_user">
+          <h3 class="font-weight-bold" style="color:#ff7200;">
+            Assigned User
+          </h3>
+        </label>
+      </div>
+      <div class="col-12 col-md align-self-start">
+        {{ form.ass_user }}
+      </div>
+    </div>
+  </div>
+  <hr>
+  <a class="btn btn-outline-secondary" href="{% url 'home' %}" role="button">Cancel</a>
+  <input type="submit" class="btn btn-outline-success" value="Submit">
+</form>
+
+{% endblock content %}
+
+# https://stackoverflow.com/questions/18742261/django-what-is-the-best-way-to-format-forms
+
+# https://www.webforefront.com/django/formtemplatelayout.html
