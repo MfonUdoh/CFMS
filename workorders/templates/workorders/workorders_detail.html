@@ -11,8 +11,8 @@
 <p><em>{{ order.published_date }}</em></p>
 <hr>
 <a class="btn btn-outline-secondary" href="{% url 'workorders_list' %}" role="button">Close</a>
-<a class="btn btn-outline-success" href="" role="button">New</a>
-<a class="btn btn-outline-primary" href="" role="button">Edit</a>
-<a class="btn btn-outline-danger" href="" role="button">Delete</a>
+<a class="btn btn-outline-success" href="{% url 'workorders_new' %}" role="button">New</a>
+<a class="btn btn-outline-primary" href="{% url 'workorders_edit' pk=order.pk %}" role="button">Edit</a>
+<a class="btn btn-outline-danger" href="{% url 'workorders_delete' pk=order.pk %}" role="button">Delete</a>
 
 {% endblock content %}
