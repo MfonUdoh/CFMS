@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ part.name }}{% endblock title %}
+
+{% block content %}
+<h1 style="color:#ff7200;"><b>{{ part.name }}</b></h1>
+  <h5 class= "font-italic">{{ part.assigned_asset }},</h5>
+  <p style="font-size: larger";>{{ part.description }}</p>
+  <hr>
+<p><em>{{ part.created_date }}</em></p>
+<hr>
+<a class="btn btn-outline-secondary" href="{% url 'parts_list' pk=asset.pk %}" role="button">Close</a>
+{% if user.is_authenticated %}
+<a class="btn btn-outline-success" href="{% url 'parts_new' pk=asset.pk %}" role="button">New</a>
+<a class="btn btn-outline-primary" href="{% url 'parts_edit' pk=asset.pk pk2=part.pk %}" role="button">Edit</a>
+<a class="btn btn-outline-danger" href="{% url 'parts_delete' pk=asset.pk pk2=part.pk %}" role="button">Delete</a>
+{% endif %}
+
+{% endblock content %}

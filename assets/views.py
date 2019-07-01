@@ -6,42 +6,36 @@ from django.utils import timezone
 from .forms import AssetForm
 
 # Create your views here.
-def workorders_list(request):
-    query_orders = WorkOrder.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'workorders/workorders_list.html', {'orders' : query_orders})
+def assets_list(request):
+    query_assets = Asset.objects.order_by('created_date')
+    return render(request, 'assets/list.html', {'assets' : query_assets})
 
-def workorders_detail(request, pk):
-    order = get_object_or_404(WorkOrder, pk=pk)
-    return render(request, 'workorders/workorders_detail.html', {'order' : order})
+def assets_detail(request, pk):
+    asset = get_object_or_404(Asset, pk=pk)
+    return render(request, 'assets/detail.html', {'asset' : asset})
 
-def workorders_new(request):
+def assets_new(request):
     if request.method == "POST":
-        form = WorkOrderForm(request.POST)
+        form = AssetForm(request.POST)
         if form.is_valid():
-            order = form.save(commit=False)
-            order.author = request.user
-            order.published_date = timezone.now()
-            order.save()
-            return redirect('workorders_detail', pk=order.pk)
+            asset = form.save()
+            return redirect('assets_detail', pk=asset.pk)
     else:
-        form = WorkOrderForm()
-    return render(request, 'workorders/workorders_new.html', {'form' : form})
+        form = AssetForm()
+    return render(request, 'assets/new.html', {'form' : form})
 
-def workorders_edit(request, pk):
-    order = get_object_or_404(WorkOrder, pk=pk)
+def assets_edit(request, pk):
+    asset = get_object_or_404(Asset, pk=pk)
     if request.method == "POST":
-        form = WorkOrderForm(request.POST, instance=order)
+        form = AssetForm(request.POST, instance=asset)
         if form.is_valid():
-            order = form.save(commit=False)
-            order.author = request.user
-            order.published_date = timezone.now()
-            order.save()
-            return redirect('workorders_detail', pk=order.pk)
-    else: 
-        form = WorkOrderForm(instance=order)
-    return render(request, 'workorders/workorders_edit.html', {'form' : form, 'order' : order})
- 
-class workorders_delete(DeleteView):
-    model = WorkOrder
-    template_name = "workorders/workorders_delete.html"
-    success_url = reverse_lazy('workorders_list')
+            asset = form.save()
+            return redirect('assets_detail', pk=asset.pk)
+    else:
+        form = AssetForm(instance=asset)
+    return render(request, 'assets/edit.html', {'form' : form, 'asset' : asset})
+
+class assets_delete(DeleteView):
+    model = Asset
+    template_name = "assets/delete.html"
+    success_url = reverse_lazy('assets_list')

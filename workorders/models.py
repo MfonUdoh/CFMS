@@ -11,6 +11,7 @@ class WorkOrder(models.Model):
     targetuser = models.CharField(max_length=30, default='All')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    assigned_asset = models.ForeignKey('assets.asset.name', on_delete=models.CASCADE,)
 
     def publish(self):
         self.published_date = timezone.now()

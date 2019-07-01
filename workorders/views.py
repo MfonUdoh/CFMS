@@ -8,11 +8,11 @@ from .forms import WorkOrderForm
 # Create your views here.
 def workorders_list(request):
     query_orders = WorkOrder.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'workorders/workorders_list.html', {'orders' : query_orders})
+    return render(request, 'workorders/list.html', {'orders' : query_orders})
 
 def workorders_detail(request, pk):
     order = get_object_or_404(WorkOrder, pk=pk)
-    return render(request, 'workorders/workorders_detail.html', {'order' : order})
+    return render(request, 'workorders/detail.html', {'order' : order})
 
 def workorders_new(request):
     if request.method == "POST":
@@ -25,7 +25,7 @@ def workorders_new(request):
             return redirect('workorders_detail', pk=order.pk)
     else:
         form = WorkOrderForm()
-    return render(request, 'workorders/workorders_new.html', {'form' : form})
+    return render(request, 'workorders/new.html', {'form' : form})
 
 def workorders_edit(request, pk):
     order = get_object_or_404(WorkOrder, pk=pk)
@@ -37,11 +37,11 @@ def workorders_edit(request, pk):
             order.published_date = timezone.now()
             order.save()
             return redirect('workorders_detail', pk=order.pk)
-    else: 
+    else:
         form = WorkOrderForm(instance=order)
-    return render(request, 'workorders/workorders_edit.html', {'form' : form, 'order' : order})
- 
+    return render(request, 'workorders/edit.html', {'form' : form, 'order' : order})
+
 class workorders_delete(DeleteView):
     model = WorkOrder
-    template_name = "workorders/workorders_delete.html"
+    template_name = "workorders/delete.html"
     success_url = reverse_lazy('workorders_list')

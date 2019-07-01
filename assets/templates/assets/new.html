@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}New Asset{% endblock title %}
+
+{% block content %}
+<h1 style="color:#ff7200; margin-bottom: 15px;"><b>Create A New Asset</b></h1>
+<hr>
+
+<form method="POST">{% csrf_token %}
+  <div class="col-12">
+    <div class="row">
+        <div class="col-12 col-md-2">
+          <label for="title">
+            <h3 class="font-weight-bold" style="color:#ff7200;">
+              Name
+            </h3>
+            </label>
+        </div>
+        <div class="col-12 col-md align-self-start">
+          {{ form.name }}
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-2 align-self-center">
+        <label for="text">
+          <h3 class="font-weight-bold" style="color:#ff7200;">
+            Description
+          </h3>
+        </label>
+      </div>
+      <div class="col-12 col-md align-self-start">
+        {{ form.description }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-2">
+        <label for="targetuser">
+          <h3 class="font-weight-bold" style="color:#ff7200;">
+            Location
+          </h3>
+        </label>
+      </div>
+      <div class="col-12 col-md align-self-start">
+        {{ form.location }}
+      </div>
+    </div>
+  </div>
+  <hr>
+  <a class="btn btn-outline-secondary" href="{% url 'assets_list' %}" role="button">Cancel</a>
+  <button class="btn btn-outline-success" type="submit">Save</button>
+</form>
+{% endblock content %}
