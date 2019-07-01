@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import DeleteView
 from .models import WorkOrder
+from assets.models import Asset
 from django.utils import timezone
 from .forms import WorkOrderForm
 
@@ -12,7 +13,8 @@ def workorders_list(request):
 
 def workorders_detail(request, pk):
     order = get_object_or_404(WorkOrder, pk=pk)
-    return render(request, 'workorders/detail.html', {'order' : order})
+    asset = get_object_or_404(Asset, id=order.assigned_asset_id)
+    return render(request, 'workorders/detail.html', {'order' : order, 'asset' : asset})
 
 def workorders_new(request):
     if request.method == "POST":

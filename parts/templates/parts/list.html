@@ -8,7 +8,7 @@
   <h1 style="color:#ff7200; margin-bottom: 15px;"><b>Parts</b></h1>
   </div>
   <div class="col-2">
-  <a href="{% url 'assets_new' %}" class="btn btn-outline-success" style="float: right;">New</a>
+  <a href="{% url 'parts_new' pk=asset.pk %}" class="btn btn-outline-success" style="float: right;">New</a>
     </div>
   </div>
   <hr>
@@ -17,14 +17,14 @@
   <div class="col-12 col-md-4">
     <div class="card border-secondary mb-3">
       <div class="card-header border-secondary">
-          <h4 class="text">{{ parts.name }}</h4>
+          <h4 class="text">{{ part.name }}</h4>
       </div>
     <div class="card-body">
-      <h4 class="text">{{ parts.assigned_asset }}</h4>
-      <p class= "font-italic">{{ parts.quantity }}</p>
-      <p class="card-text">{{ parts.description|linebreaksbr }}</p>
+      <h4 class="text">{{ part.assigned_asset }}</h4>
+      <p class= "font-italic">{{ part.quantity }}</p>
+      <p class="card-text">{{ part.description|linebreaksbr }}</p>
     </div>
-    <div class="card-footer bg-transparent border-secondary align-items-center">{{ parts.created_date }}<a href="{% url 'parts_detail' pk=asset.pk pk2=part.pk %}" class="btn btn-outline-primary" style="float: right;">View</a></div>
+    <div class="card-footer bg-transparent border-secondary align-items-center">{{ part.created_date }}<a href="{% url 'parts_detail' pk=asset.pk pk2=part.pk %}" class="btn btn-outline-primary" style="float: right;">View</a></div>
     </div>
   </div>
 {% endfor %}

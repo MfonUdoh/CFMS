@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
-{% block title %}New Asset{% endblock title %}
+{% block title %}New Part{% endblock title %}
 
 {% block content %}
-<h1 style="color:#ff7200; margin-bottom: 15px;"><b>Create A New Asset</b></h1>
+<h1 style="color:#ff7200; margin-bottom: 15px;"><b>Create A New Part</b></h1>
 <hr>
 
 <form method="POST">{% csrf_token %}
@@ -58,7 +58,7 @@
     </div>
   </div>
   <hr>
-  <a class="btn btn-outline-secondary" href="{% url 'parts_list' %}" role="button">Cancel</a>
+  <a class="btn btn-outline-secondary" href="{% url 'parts_list' pk=asset.pk %}" role="button">Cancel</a>
   <button class="btn btn-outline-success" type="submit">Save</button>
 </form>
 {% endblock content %}

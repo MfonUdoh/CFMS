@@ -4,13 +4,13 @@
 
 {% block content %}
 <h1 style="color:#ff7200;"><b>{{ order.title }}</b></h1>
-  <h4 class="text"><b>{{ order.assigned_asset }}</b></h4>
+{% if order.urgent == 1 %}
+  <h3 class="text-danger">[URGENT]</h3>
+  {% endif %}
+  <a class="text" href="{% url 'assets_detail' pk=asset.pk %}"><b>{{ order.assigned_asset }}</b></a>
   <h5 class= "font-italic">{{ order.targetuser}},</h5>
   <p style="font-size: larger";>{{ order.text }}</p>
   <hr>
-  {% if order.urgent == 1 %}
-  <h3 class="text-danger">[URGENT]</h3>
-  {% endif %}
 <p><b>{{ order.author }}</b></p>
 <p><em>{{ order.published_date }}</em></p>
 <hr>
