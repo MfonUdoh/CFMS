@@ -1,7 +1,7 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
-    {% load static %}
     <title>{% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/ico" href="{% static 'favicon.ico' %}"/>
@@ -10,7 +10,7 @@
   </head>
   <body>
       <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #ff7200;">
-  <a class="navbar-brand" href="">
+  <a class="navbar-brand" href="{% url 'home' %}">
     <img src="{% static 'tnt.png' %}" width="70" height="30" alt="" class="d-inline-block align-top">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

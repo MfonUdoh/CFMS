@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}New Order{% endblock title %}
+{% block title %}New Work Order Request{% endblock title %}
 
 {% block content %}
 <h1 style="color:#ff7200; margin-bottom: 15px;"><b>Create A Work Order Request</b></h1>
@@ -21,18 +21,6 @@
         </div>
     </div>
     <div class="row">
-      <div class="col-12 col-md-2">
-        <label for="author">
-          <h3 class="font-weight-bold" style="color:#ff7200;">
-            Author
-          </h3>
-        </label>
-      </div>
-      <div class="col-12 col-md align-self-start">
-        {{ form.author }}
-      </div>
-    </div>
-    <div class="row">
       <div class="col-12 col-md-2 align-self-center">
         <label for="text">
           <h3 class="font-weight-bold" style="color:#ff7200;">
@@ -46,7 +34,7 @@
     </div>
     <div class="row">
       <div class="col-12 col-md-2">
-        <label for="ass_user">
+        <label for="targetuser">
           <h3 class="font-weight-bold" style="color:#ff7200;">
             Target User(s)
           </h3>
@@ -58,7 +46,7 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-2">
-          <label for="ass_user">
+          <label for="urgent">
             <h3 class="font-weight-bold" style="color:#ff7200;">
               Urgent?
             </h3>
@@ -71,6 +59,6 @@
   </div>
   <hr>
   <a class="btn btn-outline-secondary" href="{% url 'workorders_list' %}" role="button">Cancel</a>
-  <input type="submit" class="btn btn-outline-success" value="Submit">
+  <button class="btn btn-outline-success" type="submit">Save</button>
 </form>
 {% endblock content %}

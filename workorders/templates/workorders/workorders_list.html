@@ -12,20 +12,27 @@
     </div>
   </div>
   <hr>
-  {% for order in orders %}
   <div class="row">
-  <div class="col-12 col-md-4">
-    <div class="card border-secondary mb-3">
-    <div class="card-header border-secondary">
-      <h4 class="text">{{ order.title }}</h4>
+  {% for order in orders %}
+  <div class="col-12 col-md-4"
+  ><div class="card border-secondary mb-3">
+      <div class="card-header border-secondary">
+          {% if order.urgent == 1 %}
+          <h4 class="text-danger">{{ order.title }}
+            <a style="float: right;">[URGENT]</a>
+          </h4>
+          {% else %}
+          <h4 class="text">{{ order.title }}</h4>
+          {% endif %}
+      
       </div>
     <div class="card-body">
       <p class= "font-italic">{{ order.targetuser }}</p>
       <p class="card-text">{{ order.text|linebreaksbr }}</p>
     </div>
     <div class="card-footer bg-transparent border-secondary align-items-center"><b>{{ order.author }}</b>    {{ order.published_date }} <a href="{% url 'workorders_detail' pk=order.pk %}" class="btn btn-outline-primary" style="float: right;">View</a></div>
-    {% endfor %}
     </div>
   </div>
+{% endfor %}
 </div>
 {% endblock content %}
