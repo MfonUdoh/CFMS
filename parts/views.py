@@ -7,6 +7,10 @@ from django.utils import timezone
 from .forms import PartForm
 
 # Create your views here.
+def parts_all(request):
+    parts = Part.objects.all()
+    return render(request, 'parts/all.html', {'parts' : parts})
+
 def parts_list(request, pk):
     asset = get_object_or_404(Asset, pk=pk)
     query_parts = Part.objects.filter(assigned_asset_id=asset.pk).order_by('created_date')
@@ -28,7 +32,7 @@ def parts_new(request, pk):
         form = PartForm()
     return render(request, 'parts/new.html', {'form' : form, 'asset' : asset})
 
-def parts_edit(request, pk2):
+def parts_edit(request, pk, pk2):
     part = get_object_or_404(Part, pk=pk2)
     asset = get_object_or_404(Asset, id=part.assigned_asset_id)
     if request.method == "POST":

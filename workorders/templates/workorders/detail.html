@@ -14,7 +14,7 @@
 <p><b>{{ order.author }}</b></p>
 <p><em>{{ order.published_date }}</em></p>
 <hr>
-<a class="btn btn-outline-secondary" href="{% url 'workorders_list' %}" role="button">Close</a>
+<a class="btn btn-outline-secondary" href="{% url 'workorders_list' pk=order.assigned_asset_id %}" role="button">Close</a>
 {% if user.is_authenticated %}
 <a class="btn btn-outline-success" href="{% url 'workorders_new' %}" role="button">New</a>
 <a class="btn btn-outline-primary" href="{% url 'workorders_edit' pk=order.pk %}" role="button">Edit</a>

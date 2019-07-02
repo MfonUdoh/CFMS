@@ -58,7 +58,7 @@
     </div>
   </div>
   <hr>
-  <a class="btn btn-outline-secondary" href="{% url 'parts_detail' pk2=part.pk %}" role="button">Cancel</a>
+  <a class="btn btn-outline-secondary" href="{% url 'parts_detail' pk=part.assigned_asset_id pk2=part.pk %}" role="button">Cancel</a>
   <button class="btn btn-outline-success" type="submit">Save</button>
 </form>
 {% endblock content %}

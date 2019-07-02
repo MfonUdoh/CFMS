@@ -7,6 +7,10 @@ from django.utils import timezone
 from .forms import WorkOrderForm
 
 # Create your views here.
+def workorders_all(request):
+    orders = WorkOrder.objects.all()
+    return render (request, 'workorders/all.html', {'orders' : orders})
+
 def workorders_list(request):
     query_orders = WorkOrder.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'workorders/list.html', {'orders' : query_orders})

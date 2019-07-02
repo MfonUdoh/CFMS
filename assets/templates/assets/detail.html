@@ -6,12 +6,13 @@
 <h1 style="color:#ff7200;"><b>{{ asset.name }}</b></h1>
   <h5 class= "font-italic">{{ asset.location}},</h5>
   <p style="font-size: larger";>{{ asset.description }}</p>
-  <hr>
+
 <p><em>{{ asset.created_date }}</em></p>
+<hr>
+<a class="btn btn-outline-warning" href="{% url 'parts_list' pk=asset.pk %}" role="button">View Parts</a>
 <hr>
 <a class="btn btn-outline-secondary" href="{% url 'assets_list' %}" role="button">Close</a>
 {% if user.is_authenticated %}
-<a class="btn btn-outline-warning" href="{% url 'parts_list' pk=asset.pk %}" role="button">Parts</a>
 <a class="btn btn-outline-success" href="{% url 'assets_new' %}" role="button">New</a>
 <a class="btn btn-outline-primary" href="{% url 'assets_edit' pk=asset.pk %}" role="button">Edit</a>
 <a class="btn btn-outline-danger" href="{% url 'assets_delete' pk=asset.pk %}" role="button">Delete</a>

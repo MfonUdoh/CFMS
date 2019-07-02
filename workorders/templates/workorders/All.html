@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ order.assigned_asset }} Work Orders{% endblock title %}
+{% block title %}Work Orders{% endblock title %}
 
 {% block content %}
 <div class="row">
     <div class="col-10">
-  <h1 style="color:#ff7200; margin-bottom: 15px;"><b>{{ order.assigned_asset }} Work Orders</b></h1>
+  <h1 style="color:#ff7200; margin-bottom: 15px;"><b>All Open Work Orders</b></h1>
   </div>
   <div class="col-2">
   <a href="{% url 'workorders_new' %}" class="btn btn-outline-success" style="float: right;">New</a>

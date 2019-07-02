@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}All Parts{% endblock title %}
+
+{% block content %}
+<div class="row">
+    <div class="col-10">
+  <h1 style="color:#ff7200; margin-bottom: 15px;"><b>List of All Parts</b></h1>
+  </div>
+  <div class="col-2">
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+  {% for part in parts %}
+  <div class="col-12 col-md-12">
+    <div class="card border-secondary mb-3">
+      <div class="card-header border-secondary">
+          <h4 class="text">{{ part.name }} <b>x{{ part.quantity }}</b><p class="card-text">     {{ part.assigned_asset }}</p></h4>
+      </div>
+    </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock content %}

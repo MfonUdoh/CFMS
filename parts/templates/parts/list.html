@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}All Parts{% endblock title %}
+{% block title %}{{ asset.name }} Parts{% endblock title %}
 
 {% block content %}
 <div class="row">
     <div class="col-10">
-  <h1 style="color:#ff7200; margin-bottom: 15px;"><b>Parts</b></h1>
+  <h1 style="color:#ff7200; margin-bottom: 15px;"><b><a href="{% url 'assets_detail' pk=asset.pk %}" style="color:#ff7200;">{{ asset.name }}</a> - List of Parts</b></h1>
   </div>
   <div class="col-2">
   <a href="{% url 'parts_new' pk=asset.pk %}" class="btn btn-outline-success" style="float: right;">New</a>
@@ -14,15 +14,14 @@
   <hr>
   <div class="row">
   {% for part in parts %}
-  <div class="col-12 col-md-4">
+  <div class="col-12 col-md-12">
     <div class="card border-secondary mb-3">
       <div class="card-header border-secondary">
           <h4 class="text">{{ part.name }}</h4>
       </div>
     <div class="card-body">
-      <h4 class="text">{{ part.assigned_asset }}</h4>
-      <p class= "font-italic">{{ part.quantity }}</p>
-      <p class="card-text">{{ part.description|linebreaksbr }}</p>
+      <p class= "font-italic"><b>Quantity:</b> {{ part.quantity }}</p>
+      <p class="card-text"><b>Description:</b>  {{ part.description|linebreaksbr }}</p>
     </div>
     <div class="card-footer bg-transparent border-secondary align-items-center">{{ part.created_date }}<a href="{% url 'parts_detail' pk=asset.pk pk2=part.pk %}" class="btn btn-outline-primary" style="float: right;">View</a></div>
     </div>
