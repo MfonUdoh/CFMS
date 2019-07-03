@@ -16,7 +16,8 @@
   <div class="col-12 col-md-12">
     <div class="card border-secondary mb-3">
       <div class="card-header border-secondary">
-          <h4 class="text">{{ part.name }} <b>x{{ part.quantity }}</b><p class="card-text">     {{ part.assigned_asset }}</p></h4>
+          <h4 class="text"><a href="{% url 'parts_detail' pk=part.assigned_asset_id pk2=part.pk %}">{{ part.name }}</a></h4>
+          <p class="card-text"><b>x{{ part.quantity }}</b>  -   {{ part.assigned_asset }}</p>
       </div>
     </div>
     </div>

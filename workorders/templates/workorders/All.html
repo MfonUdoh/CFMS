@@ -28,7 +28,7 @@
     <div class="card-body">
       <p class= "font-italic"><b>{{ order.targetuser }}</b></p>
       <p class="card-text">{{ order.text|linebreaksbr }}</p>
-      <a class="text" href="{% url 'assets_detail' pk=order.assigned_asset_id %}"><b>{{ order.assigned_asset }}</b></a>
+      <a class="font-italic" href="{% url 'assets_detail' pk=order.assigned_asset_id %}">{{ order.assigned_asset }}</a>
     </div>
     <div class="card-footer bg-transparent border-secondary align-items-center">
       <b>{{ order.author }}</b>    {{ order.published_date }} <a href="{% url 'workorders_detail' pk=order.pk %}" class="btn btn-outline-primary" style="float: right;">View</a>

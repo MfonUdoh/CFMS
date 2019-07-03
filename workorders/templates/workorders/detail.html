@@ -7,8 +7,8 @@
 {% if order.urgent == 1 %}
   <h3 class="text-danger">[URGENT]</h3>
   {% endif %}
-  <a class="text" href="{% url 'assets_detail' pk=asset.pk %}"><b>{{ order.assigned_asset }}</b></a>
-  <h5 class= "font-italic">{{ order.targetuser}},</h5>
+  <h5><a class="text" href="{% url 'assets_detail' pk=asset.pk %}">{{ order.assigned_asset }}</a></h5>
+  <h5 class= "font-italic"><b>{{ order.targetuser}},</b></h5>
   <p style="font-size: larger";>{{ order.text }}</p>
   <hr>
 <p><b>{{ order.author }}</b></p>

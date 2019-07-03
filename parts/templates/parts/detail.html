@@ -4,8 +4,9 @@
 
 {% block content %}
 <h1 style="color:#ff7200;"><b>{{ part.name }}</b></h1>
-  <a class= "font-italic" href="{% url 'assets_detail' pk=asset.pk %}">{{ part.assigned_asset }}</a>
-  <p style="font-size: larger";>{{ part.description }}</p>
+<h5><a href="{% url 'assets_detail' pk=asset.pk %}">{{ part.assigned_asset }}</a></h5>
+<h5 class="font-bold">x{{ part.quantity }}</h5>
+<p style="font-size: larger";>{{ part.description }}</p>
   <hr>
 <p><em>{{ part.created_date }}</em></p>
 <hr>

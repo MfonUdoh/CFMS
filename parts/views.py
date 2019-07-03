@@ -53,4 +53,4 @@ class parts_delete(DeleteView):
         part = get_object_or_404(Part, pk=pk2)
         return part
 
-    success_url = reverse_lazy('home') 
+    success_url = reverse_lazy('parts_all') 
