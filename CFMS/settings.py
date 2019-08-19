@@ -25,8 +25,10 @@ SECRET_KEY = 'f^xm+xbs$dyocf$y9!p+z&lwfgtbpt+g86m)*v7y6h%)auqb*$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', '192.168.0.6']
-
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', '192.168.1.179']
+# '192.168.1.179'
+# use python manage.py runserver 0.0.0.0:8000 to make visible on the lan and ensure 
+# that the current local ip is in Allowed_hosts
 
 # Application definition
 
@@ -38,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'workorders',
+    'assets',
+    'parts',
     'main'
 ]
 
@@ -107,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Europe/Berlin'
+TIME_ZONE = 'Europe/London'
 
 USE_I18N = True
 

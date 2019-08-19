@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from assets.models import Asset
 
 
 class WorkOrder(models.Model):
@@ -11,6 +12,8 @@ class WorkOrder(models.Model):
     targetuser = models.CharField(max_length=30, default='All')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    assigned_asset = models.ForeignKey(Asset, on_delete=models.CASCADE,)
+    
 
     def publish(self):
         self.published_date = timezone.now()

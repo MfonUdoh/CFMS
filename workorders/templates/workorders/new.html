@@ -45,6 +45,18 @@
       </div>
     </div>
     <div class="row">
+      <div class="col-12 col-md-2">
+        <label for="targetuser">
+          <h3 class="font-weight-bold" style="color:#ff7200;">
+            Related Asset
+          </h3>
+        </label>
+      </div>
+      <div class="col-12 col-md align-self-start">
+        {{ form.assigned_asset }}
+      </div>
+    </div>
+    <div class="row">
         <div class="col-12 col-md-2">
           <label for="urgent">
             <h3 class="font-weight-bold" style="color:#ff7200;">
@@ -58,7 +70,7 @@
       </div>
   </div>
   <hr>
-  <a class="btn btn-outline-secondary" href="{% url 'workorders_list' %}" role="button">Cancel</a>
+  <a class="btn btn-outline-secondary" href="{% url 'workorders_all' %}" role="button">Cancel</a>
   <button class="btn btn-outline-success" type="submit">Save</button>
 </form>
 {% endblock content %}

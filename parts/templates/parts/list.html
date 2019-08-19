@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ asset.name }} Parts{% endblock title %}
+
+{% block content %}
+<div class="row">
+    <div class="col-10">
+  <h1 style="color:#ff7200; margin-bottom: 15px;"><b><a href="{% url 'assets_detail' pk=asset.pk %}" style="color:#ff7200;">{{ asset.name }}</a> - List of Parts</b></h1>
+  </div>
+  <div class="col-2">
+  <a href="{% url 'parts_new' pk=asset.pk %}" class="btn btn-outline-success" style="float: right;">New</a>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+  {% for part in parts %}
+  <div class="col-12 col-md-12">
+    <div class="card border-secondary mb-3">
+      <div class="card-header border-secondary">
+          <h4 class="text"><a href="{% url 'parts_detail' pk=asset.pk pk2=part.pk %}">{{ part.name }}</a></h4>
+      </div>
+    <div class="card-body">
+      <p class= "font-italic"><b>Quantity:</b> {{ part.quantity }}</p>
+      <p class="card-text"><b>Description:</b>  {{ part.description|linebreaksbr }}</p>
+    </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock content %}

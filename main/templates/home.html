@@ -4,5 +4,14 @@
 {% block content %}
 <h1 style="color:#ff7200;"><b>Welcome to the CMMS</b></h1>
 <hr>
-<h2 style="color:#ff7200;">Explore the webapp.</h2>
+<div class="card">
+<div class="col-6">
+<a class="fas fa-clipboard-list fa-7x align-middle" style="color: #ff7200;" href="{% url 'workorders_all' %}"></a>
+</div>
+<div>
+<div class="col-6">
+<a href="{% url 'workorders_all' %}" style="color: #ff7200;">Work Orders</a>
+</div>
+</div>
+</div>
 {% endblock content %}
