@@ -14,8 +14,8 @@
   <hr>
   <div class="row">
   {% for order in orders %}
-  <div class="col-12 col-md-4"
-  ><div class="card border-secondary mb-3">
+  <div class="col-12 col-md-4">
+  <div class="card border-secondary mb-3">
       <div class="card-header border-secondary">
           {% if order.urgent == 1 %}
           <h4 class="text-danger">{{ order.title }}

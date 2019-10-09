@@ -4,14 +4,42 @@
 {% block content %}
 <h1 style="color:#ff7200;"><b>Welcome to the CMMS</b></h1>
 <hr>
-<div class="card">
-<div class="col-6">
-<a class="fas fa-clipboard-list fa-7x align-middle" style="color: #ff7200;" href="{% url 'workorders_all' %}"></a>
-</div>
-<div>
-<div class="col-6">
-<a href="{% url 'workorders_all' %}" style="color: #ff7200;">Work Orders</a>
-</div>
-</div>
+<div class="row">
+    <div class="col-12 col-md-4">
+        <div class="card border-secondary mb-3">
+            <div class="row card-body d-flex justify-content-center">
+                <a class="fas fa-clipboard-list fa-7x" style="color: #ff7200;" href="{% url 'workorders_all' %}"></a>
+            </div>
+            <div>
+                <div class="row card-body d-flex justify-content-center">
+                    <a href="{% url 'workorders_all' %}" style="color: #ff7200;"><b>Work Orders</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <div class="card border-secondary mb-3">
+            <div class="row card-body d-flex justify-content-center">
+                <a class="fas fa-cogs fa-7x" style="color: #ff7200;" href="{% url 'assets_list' %}"></a>
+            </div>
+            <div>
+                <div class="row card-body d-flex justify-content-center">
+                    <a href="{% url 'assets_list' %}" style="color: #ff7200;"><b>Assets</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <div class="card border-secondary mb-3">
+            <div class="row card-body d-flex justify-content-center">
+                <a class="fas fa-toolbox fa-7x" style="color: #ff7200;" href="{% url 'parts_all' %}"></a>
+            </div>
+            <div>
+                <div class="row card-body d-flex justify-content-center">
+                    <a href="{% url 'parts_all' %}" style="color: #ff7200;"><b>Parts</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock content %}
