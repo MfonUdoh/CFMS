@@ -2,7 +2,24 @@
 
 {% block title %}Home{% endblock title %}
 {% block content %}
-<h1 style="color:#ff7200;"><b>Welcome to the CMMS</b></h1>
+<div class="row">
+    <div class="col-12 col-md-8">
+        <h1 style="color:#ff7200;"><b>Welcome to the CMFS</b></h1>
+    </div>
+    <div class="col-12 col-md-2 align-self-end">
+        {% if user.is_authenticated %}
+            <h5>Logged in as <b>{{ user.username }}</b></h5>
+        {% endif %}
+    </div>
+    <div class="col-md-2 align-self-end">
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}" class="btn btn-secondary">Logout</a>
+        {% else %}
+        <a href="{% url 'register' %}" class="btn btn-success">Register</a>
+        <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+        {% endif %}
+    </div>
+</div>
 <hr>
 <div class="row">
     <div class="col-12 col-md-4">

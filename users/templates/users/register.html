@@ -1,0 +1,70 @@
+{% extends 'base.html'%}
+
+{% block title %}Register an Account{% endblock %}
+
+{% block content %}
+<form method="POST" class="form-group">{% csrf_token %}
+    <div class="col-12">
+    <div class="row" style="padding-top: 4px">
+        <div class="col-12 col-md-3">
+          <label for="title">
+            <h4 class="font-weight-bold" style="color:#ff7200;">
+                Username
+            </h4>
+            </label>
+        </div>
+        <div class="col-12 col-md align-self-start">
+          {{ form.username }}
+          <a class="text-danger">{{ form.username.errors }}</a>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+      <div class="col-12 col-md-3 align-self-center">
+        <label for="text">
+          <h4 class="font-weight-bold" style="color:#ff7200;">
+            Job Title
+          </h4>
+        </label>
+      </div>
+      <div class="col-12 col-md align-self-start">
+        {{ form.title }}
+      </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+      <div class="col-12 col-md-3">
+        <label for="targetuser">
+          <h4 class="font-weight-bold" style="color:#ff7200;">
+            {{ form.password1.label }}
+          </h4>
+        </label>
+      </div>
+      <div class="col-12 col-md align-self-start">
+        {{ form.password1 }}
+        <div>{{ form.password1.help_text }}</div>
+        <a class="text-danger">{{ form.password1.errors }}</a>
+      </div>
+    </div>
+    <div class="row" style="padding-top: 4px">
+      <div class="col-12 col-md-3">
+        <label for="targetuser">
+          <h4 class="font-weight-bold" style="color:#ff7200;">
+            {{ form.password2.label }}
+          </h4>
+        </label>
+      </div>
+
+      <div class="col-12 col-md align-self-start">
+        {{ form.password2 }}
+        <div>{{ form.password2.help_text }}</div>
+        <a class="text-danger">{{ form.password2.errors }}</a>
+      </div>
+    </div>
+    <div>
+      <a class="text-danger">{{ form.non_field_errors }}</a>
+    </div>
+  </div>
+  <hr>
+  <a class="btn btn-outline-secondary" href="{% url 'home' %}" role="button">Cancel</a>
+  <button class="btn btn-outline-success" type="submit">Create</button>
+</form>
+{% endblock %}
