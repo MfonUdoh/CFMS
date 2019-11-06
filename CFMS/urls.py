@@ -24,5 +24,6 @@ urlpatterns = [
     path('assets/', include('assets.urls')),
     path('parts/', parts_all, name='parts_all'),
     path('', views.homeview, name="home"),
-    path('about', views.aboutview, name="about")
+    path('about', views.aboutview, name="about"),
+    path('user/', include('users.urls')),
 ]
