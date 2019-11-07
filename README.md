@@ -54,21 +54,21 @@ They may be technical staff which can be assigned to fulfil work orders, the amo
 
     go-to: http://127.0.0.1:8000/
 
-To launch on network
+### To launch on network
 
 1. /CFMS/settings.py ⇒ ALLOWED_HOSTS ⇒ add your host IP to the list
 2. `python3 manage.py runserver 0.0.0.0:8000`
 3. go to [hostIP]:8000
 
-### Functionality
+## Functionality
 
 - Asset overview
 - Parts tracking
 - Work order posting
 
-### Future Work
+## Future Work
 
 - Phone notifications
-- User authentification levels
+- ~~User authentification levels~~ (Completed)
 - Sort and search for lists
 - Personalised user dashboards

@@ -22,8 +22,8 @@
           <h4 class="text">{{ asset.name }}</h4>
       </div>
     <div class="card-body">
-      <p class= "font-italic">{{ asset.location }}</p>
       <p class="card-text">{{ asset.description|linebreaksbr }}</p>
+      <p class= "font-italic">{{ asset.location }}</p>
     </div>
     <div class="card-footer bg-transparent border-secondary align-items-center">{{ asset.created_date }}<a href="{% url 'assets_detail' pk=asset.pk %}" class="btn btn-outline-primary" style="float: right;">View</a></div>
     </div>
